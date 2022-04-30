@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *:before, *:after{
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+	/*outline: 1px solid blue;*/
+}
+
+::-webkit-scrollbar{
+	width: 0px;
+}
+
+@font-face{
+	font-family: 'ogg';
+    src: url('../fonts/Ogg-Roman.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'apercu';
+    src: url('../fonts/Apercu_Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'apercu mono';
+    src: url('../fonts/apercu-mono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pingfang';
+    src: url('../fonts/PingFang-SC-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#menu--options-outer-div{
+	@apply grid grid-cols-2 grid-rows-2 h-5/6 text-c-black text-xl relative
+}
+
+.menu--options{
+	@apply text-c-black text-xl relative;
+}
+
+.menu--options>a{
+ @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+}
+
+@keyframes options{
+	100%{
+		opacity: 1;
+	}
+}
+
+.preformatted{
+	@apply mb-7
+}
+
+.widelink{
+	@apply  text-center border border-black border-solid w-full block p-5 mb-5;
+}
+
+.menu--socials{
+	@apply w-auto py-4 border border-black border-solid text-3xl;
+}
+
+#header{
+	@apply fixed z-2 inset-x-0 flex flex-row justify-between items-center p-[1.85rem];
+}
+
+#header--menu-icon-box{
+	@apply text-4xl flex overflow-hidden;
+}
+
+/*@keyframes moveLeft{
+	0{
+		opacity: 0;
+		transform: translateX(40px);
+	}
+	100%{
+		opacity: 1;
+		transform: translateX(40px);
+	}
+}*/
+
+#main{
+	@apply relative top-[300px];
+}
+
+#main>section, footer{
+	@apply px-[1.875rem]
+}
+
+.first-section--text{
+	@apply text-[2.185rem] leading-[42px] font-ogg
+}
+
+#first-image{
+	@apply relative mt-10 mb-[5.5rem] pb-[115%]
+}
+
+#first-image--image{
+	@apply bg-[url("../images/first.jpg")] bg-cover w-full h-full bg-center absolute z-1
+}
+
+#second-section--header{
+	@apply text-6xl font-ogg my-[4rem]
+}
+
+.grid-container{
+	@apply grid;
+}
+
+.grid-children .preformatted{
+	@apply my-8 text-sm
+}
+
+#third-section{
+	@apply mt-6 /*bg-24_1 bg-lines bg-left-bottom bg-repeat-x */
+}/*py-0 mx-[1.875rem]*/
+
+.third-section--headers{
+	@apply text-6xl font-ogg text-center w-75 mx-auto
+}
+
+.foreign{
+	-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: hsla(0 0% 50%);
+    -webkit-text-fill-color: transparent;
+	@apply font-pingfang py-16;
+}
+
+.double-dash{
+	@apply my-4 text-center w-75 mx-auto;
+}
+
+.double-dash--info, .double-dash--date{
+	@apply bg-24_1 bg-lines bg-left-bottom bg-repeat-x
+}
+
+.double-dash--date{
+	@apply bg-left-top pt-11 pb-4 text-xs
+}
+
+.double-dash--info{
+	@apply pb-11 px-5
+}
+
+.double-dash:last-of-type{
+	@apply bg-24_1 bg-lines bg-left-bottom bg-repeat-x mb-0 pb-4
+}
+
+.fourth-section--link{
+	@apply my-[3.25rem]
+}
+
+#fifth-section--location{
+	@apply text-[2.5rem] font-ogg p-[3.25rem] text-center mb-8;
+}
+
+.moving-lines{	
+	background-image: linear-gradient(to right, black 50%, transparent 0), 
+								linear-gradient(to bottom, black 50%, transparent 0), 
+								linear-gradient(to right, black 50%, transparent 0), 
+								linear-gradient(to bottom, black 50%, transparent 0);
+	background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+	background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
+	background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+}
+
+@keyframes moving-lines{
+	0%{
+		background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+	}
+
+	100%{
+		background-position: 99% 0, 100% 178%, 1% 100%, 0 -78%;
+	}
+}
+
+#sixth-section{
+	@apply py-8;
+	background-image: repeating-linear-gradient(-74deg,rgba(0,0,0,.2),rgba(0,0,0,.2) 1px,transparent 0,transparent 4px),repeating-linear-gradient(-74deg,rgba(0,0,0,.2),rgba(0,0,0,.2) 1px,transparent 0,transparent 4px);
+    background-position: 0 0,0 100%;
+    background-size: 100% 12px,100% 12px;
+}
+
+#sixth-section--vendor{
+	@apply text-2xl font-ogg px-4 text-center py-8;
+}
+
+.sixth-section--vendor-link{
+	@apply  mb-0;
+}

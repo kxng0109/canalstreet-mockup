@@ -1,0 +1,22 @@
+{
+	"name": "canalstreet-mockup",
+	"version": "1.0.0",
+	"description": "",
+	"main": "public/index.js",
+	"devDependencies": {
+		"browser-sync": "^2.27.9",
+		"concurrently": "^7.1.0",
+		"tailwindcss": "^3.0.24"
+	},
+	"scripts": {
+		"start": "concurrently \"npm:build-css\" \"npm:live-server\"",
+		"build-css": "tailwindcss -i src/styles.css -o public/styles.css --watch",
+		"live-server": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*, !.git/**/*' --directory --port 7777 --browser \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\""
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"node": "^17.7.2"
+	}
+}

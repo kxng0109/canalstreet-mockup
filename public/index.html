@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="index.js" defer></script>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<title>Cstreet</title>
+</head>
+
+<body class="font-apercu-mono">
+	<div id="menu" class="absolute z-3 inset-0 bg-white overflow-y-auto hidden">
+		<div id="menu--options-outer-div" class="apercu-mono">
+			<div class="menu--options bg-c-white animate-option-1">
+				<a href="#" class="-rotate-45">About</a>
+			</div>
+			<div class="menu--options bg-c-blue animate-option-2">
+				<a href="#" class="rotate-45">Food</a>
+			</div>
+			<div class="menu--options bg-c-red animate-option-3">
+				<a href="#" class="-rotate-45">Retail</a>
+			</div>
+			<div class="menu--options bg-c-gold animate-option-4">
+				<a href="#" class="rotate-45">Community</a>
+			</div>
+		</div>
+
+		<div id="menu--more-info" class="p-[1.875rem]">
+			<a href="#" class="widelink" id="more-info--vendor">become a vendor</a>
+			<div class="preformatted">
+				<p>265 Canal Street</p>
+				<p>New York, New York</p>
+			</div>
+			<div class="preformatted">
+				<p>Food Hall Hours:</p>
+				<p>Mon – Sun: 10AM- 10PM</p>
+			</div>
+			<div class="preformatted">
+				<p>Retail Market Hours:</p>
+				<p>Mon – Sat: 11AM- 7PM</p>
+				<p>Sun: 11AM-6PM</p>
+			</div>
+			<a href="#" class="text-[14px] underline mb-7 block">Email us</a>
+			<div class="grid grid-cols-2 gap-x-7">
+				<ion-icon name="logo-facebook" class="menu--socials"></ion-icon>
+				<ion-icon name="logo-instagram" class="menu--socials"></ion-icon>
+			</div>
+		</div>
+	</div>
+
+	<div id="container">
+		<header id="header">
+			<img src="../images/logo.svg" id="logo">
+			<div id="header--menu-icon-box">
+				<ion-icon name="close-outline" class="opacity-0"></ion-icon>
+				<ion-icon name="menu-outline"></ion-icon>
+			</div>
+		</header>
+
+		<div id="side-fixed-large" class="hidden">
+			<div id="side-option1" class="">
+				<a href="#">Food</a>
+			</div>
+			<div id="side-option2">
+				<a href="#">Retail</a>
+			</div>
+			<div id="side-option3">
+				<a href="#">Community</a>
+			</div>
+		</div>
+		
+
+		<main id="main" class="">
+			<section class="fade">
+				<p class="first-section--text">Canal Street Market is a carefully curated retail market, food hall & community space open year-round at 265 Canal Street. <a href="#" id="anim-link">Support Small Business</a> this weekend!</p>
+			</section>
+
+			<div class="fade" id="first-image">
+				<div id="first-image--image"></div>
+			</div>
+
+			<section class="fade" id="second-section">
+				<h2 id="second-section--header">A New Kind of Market</h2>
+
+				<div class="grid-container">
+					<div class="grid-children">
+						<div class="fade" id="div-image2"><img src="../images/second.jpg"></div>
+						<p class="preformatted">Merging retail, food, art, and culture, Canal Street Market highlights top retail and design concepts, restaurants, and up-and-coming players in the downtown New York City community.</p>
+					</div>
+
+					<div class="grid-children">
+						<div class="fade" id="div-image3"><img src="../images/third.jpg"></div>
+
+						<div class="preformatted">
+							<p>Retail Market Hours:</p>
+							<p>Fri– Sun: 11:00AM - 7:00PM</p>
+						</div>
+					</div>
+
+					<div class="grid-children">
+						<div class="fade" id="div-image4"><img src="../images/fourth.jpg"></div>
+
+						<div class="preformatted">
+							<p>Food Hall Hours:</p>
+							<p>Mon – Thurs: 11:00AM - 6:00PM</p>
+							<p>Fri– Sun: 11:00AM - 7:00PM</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="fade" id="third-section">
+				<h2 class="foreign third-section--headers">活動</h2>
+				<h2 class="third-section--headers">Market Events</h2>
+				<h2 class="foreign third-section--headers bg-24_1 bg-lines bg-left-bottom bg-repeat-x ">活動</h2>
+			</section>
+
+			<section class="fade" id="fourth-section">
+				<div class="double-dash">
+					<p class="double-dash--date">10/22</p>
+					<p class="double-dash--info">Small Business Retail Pop Up Weekend!</p>
+				</div>
+
+				<div class="double-dash">
+					<p class="double-dash--date">02/07</p>
+					<p class="double-dash--info">New Balance x Paperboy Paris by Greenhouse @ Canal Street Market</p>
+				</div>
+
+				<div class="double-dash">
+					<p class="double-dash--date">12/11</p>
+					<p class="double-dash--info">Hack City 12/11</p>
+				</div>
+
+				<a href="#" class="widelink fourth-section--link">see all</a>
+			</section>
+
+			<section class="fade" id="fifth-section">
+				<p id="fifth-section--location" class="moving-lines">265 Canal St. New York, NY</p>
+			</section>
+
+			<section class="fade" id="sixth-section">
+				<p id="sixth-section--vendor">Interested in becoming a vendor?</p>
+				<a href="#" class="widelink sixth-section--vendor-link">click here</a>
+			</section>
+
+			<section class="fade" id="sixth">
+				<div class="reach">
+					<i class="fas fa-pencil-alt"></i>
+					<pre class="finfo">Email us</pre>
+				</div>
+				<div class="reach">
+					<i class="fab fa-facebook-f"></i>
+					<pre class="finfo">Follow us
+on facebook</pre>
+				</div>
+				<div class="reach">
+					<i class="fab fa-instagram"></i>
+					<pre class="finfo">Follow us 
+on instagram</pre>
+				</div>
+				<div class="reach email">
+					<i class="far fa-envelope"></i>
+					<pre class="finfo">Get updouble-dash--dates in your inbox</pre>
+						<input id="input-email" type="email" name="email" placeholder="Email">
+				</div>
+			</section>
+
+			<footer id="footer">
+				<div>
+					<a href="#" class="flink">Privacy Policy</a>
+					<a href="#" class="flink">Vendor Login</a>
+				</div>
+				<div>
+					<p class="fp">Site by <span id="strike">Zero</span></p>
+					<p class="fp">Copyright Canal Street Market 2019</p>
+				</div>
+			</footer>
+			</main>
+	</div>
+</body>
+</html>
