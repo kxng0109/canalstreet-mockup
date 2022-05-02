@@ -643,10 +643,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0;
 }
 
-.ease-out {
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-
 *, *:before, *:after{
   margin: 0;
   padding: 0;
@@ -662,7 +658,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face{
   font-family: 'ogg';
 
-  src: url('../fonts/Ogg-Roman.otf') format('opentype');
+  src: url('./fonts/Ogg-Roman.otf') format('opentype');
 
   font-weight: normal;
 
@@ -672,7 +668,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: 'apercu';
 
-  src: url('../fonts/Apercu_Regular.otf') format('opentype');
+  src: url('./fonts/Apercu_Regular.otf') format('opentype');
 
   font-weight: normal;
 
@@ -682,7 +678,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: 'apercu mono';
 
-  src: url('../fonts/apercu-mono.ttf') format('truetype');
+  src: url('./fonts/apercu-mono.ttf') format('truetype');
 
   font-weight: normal;
 
@@ -692,7 +688,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: 'pingfang';
 
-  src: url('../fonts/PingFang-SC-Regular.ttf') format('truetype');
+  src: url('./fonts/PingFang-SC-Regular.ttf') format('truetype');
 
   font-weight: normal;
 
@@ -826,7 +822,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: 1;
   height: 100%;
   width: 100%;
-  background-image: url("../images/first.jpg");
+  background-image: url("./images/first.jpg");
   background-size: cover;
   background-position: center;
 }

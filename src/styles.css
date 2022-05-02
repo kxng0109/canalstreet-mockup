@@ -16,28 +16,28 @@
 
 @font-face{
 	font-family: 'ogg';
-    src: url('../fonts/Ogg-Roman.otf') format('opentype');
+    src: url('./fonts/Ogg-Roman.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'apercu';
-    src: url('../fonts/Apercu_Regular.otf') format('opentype');
+    src: url('./fonts/Apercu_Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'apercu mono';
-    src: url('../fonts/apercu-mono.ttf') format('truetype');
+    src: url('./fonts/apercu-mono.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'pingfang';
-    src: url('../fonts/PingFang-SC-Regular.ttf') format('truetype');
+    src: url('./fonts/PingFang-SC-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -108,7 +108,7 @@
 }
 
 #first-image--image{
-	@apply bg-[url("../images/first.jpg")] bg-cover w-full h-full bg-center absolute z-1
+	@apply bg-[url("./images/first.jpg")] bg-cover w-full h-full bg-center absolute z-1
 }
 
 #second-section--header{
