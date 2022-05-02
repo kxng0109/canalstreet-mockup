@@ -1,0 +1,1 @@
+const makeVariable = (element, selectorType, theTarget = document) => {return theTarget[selectorType](`${element}`)};

@@ -15,7 +15,7 @@ module.exports = {
 				"option-3" : "food 0.25s linear 0.2s forwards",
 				"option-4" : "food 0.25s linear 0.3s forwards",
 				"moveLeft" : "moveLeft 0.3s linear forwards",
-				"movingLines" : "4s moving-lines linear infinite"
+				"movingLines" : "0.4s moving-lines linear infinite forwards"
 			},
 			zIndex:{
 				'1' : '1',

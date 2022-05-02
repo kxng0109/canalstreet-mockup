@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	<script type="text/javascript" src="index.js" defer></script>
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+	<script type="text/javascript" src="./index.js" defer></script>
 	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-	<title>Cstreet</title>
+	<title>Canal Street Market</title>
 </head>
 
 <body class="font-apercu-mono">
@@ -60,7 +60,7 @@
 		</header>
 
 		<div id="side-fixed-large" class="hidden">
-			<div id="side-option1" class="">
+			<div id="side-option1">
 				<a href="#">Food</a>
 			</div>
 			<div id="side-option2">
@@ -141,40 +141,55 @@
 			</section>
 
 			<section class="fade" id="sixth-section">
-				<p id="sixth-section--vendor">Interested in becoming a vendor?</p>
-				<a href="#" class="widelink sixth-section--vendor-link">click here</a>
-			</section>
-
-			<section class="fade" id="sixth">
-				<div class="reach">
-					<i class="fas fa-pencil-alt"></i>
-					<pre class="finfo">Email us</pre>
-				</div>
-				<div class="reach">
-					<i class="fab fa-facebook-f"></i>
-					<pre class="finfo">Follow us
-on facebook</pre>
-				</div>
-				<div class="reach">
-					<i class="fab fa-instagram"></i>
-					<pre class="finfo">Follow us 
-on instagram</pre>
-				</div>
-				<div class="reach email">
-					<i class="far fa-envelope"></i>
-					<pre class="finfo">Get updouble-dash--dates in your inbox</pre>
-						<input id="input-email" type="email" name="email" placeholder="Email">
+				<div id="sixth-section--div">
+					<p id="sixth-section--vendor">Interested in becoming a vendor?</p>
+					<a href="#" class="widelink sixth-section--vendor-link">click here</a>
 				</div>
 			</section>
 
-			<footer id="footer">
-				<div>
-					<a href="#" class="flink">Privacy Policy</a>
-					<a href="#" class="flink">Vendor Login</a>
+			<footer class="fade" id="footer">
+				<div class="footer--reach-us">
+					<ion-icon name="pencil-outline" class="footer--reach-us-icon"></ion-icon>
+					<div class="preformatted">
+						<p>Email us</p>
+					</div>
 				</div>
-				<div>
-					<p class="fp">Site by <span id="strike">Zero</span></p>
-					<p class="fp">Copyright Canal Street Market 2019</p>
+
+				<div class="footer--reach-us">
+					<ion-icon name="logo-facebook" class="footer--reach-us-icon"></ion-icon>
+					<div class="preformatted">
+						<p>Follow us</p>
+						<p>on facebook</p>
+					</div>
+				</div>
+
+				<div class="footer--reach-us">
+					<ion-icon name="logo-instagram" class="footer--reach-us-icon"></ion-icon>
+					<div class="preformatted">
+						<p>Follow us</p>
+						<p>on instagram</p>
+					</div>
+				</div>
+
+				<div class="footer--reach-us footer--email">
+					<div class="preformatted">
+						<ion-icon name="mail-outline" class="footer--reach-us-icon"></ion-icon>
+						<p>Get updates in your inbox</p>
+						<div class="footer--input-email">
+							<input id="footer--input-email-field" type="email" name="email" placeholder="Email">
+							<ion-icon name="arrow-forward-outline" class="footer--input-email-enter-btn"></ion-icon>
+						</div>
+					</div>
+				</div>
+
+				<div class="footer--bottom-divs mb-7">
+					<a href="#" class="footer--link">Privacy Policy</a>
+					<a href="#" class="footer--link">Vendor Login</a>
+				</div>
+
+				<div class="footer--bottom-divs">
+					<p>Site by <span class="line-through">Zero</span></p>
+					<p>Copyright Canal Street Market 2019</p>
 				</div>
 			</footer>
 			</main>
