@@ -11,7 +11,7 @@
 </head>
 
 <body class="font-apercu-mono">
-	<div id="menu" class="fixed z-3 inset-0 overflow-y-auto overflow-x-hidden hidden opacity-0">
+	<div id="menu" class="fixed z-3 inset-0 overflow-y-auto overflow-x-hidden hidden opacity-0 md:hidden">
 		<div id="menu--options-outer-div" class="apercu-mono">
 			<div class="menu--options bg-c-white">
 				<a href="#" class="-rotate-45">About</a>
@@ -59,17 +59,11 @@
 			</div>
 		</header>
 
-		<div id="side-fixed-large" class="hidden">
-			<div id="side-option1">
-				<a href="#">Food</a>
-			</div>
-			<div id="side-option2">
-				<a href="#">Retail</a>
-			</div>
-			<div id="side-option3">
-				<a href="#">Community</a>
-			</div>
-		</div>
+		<nav id="side-navigation" class="hidden">
+			<a href="#" class="side--navigation-links bg-c-blue before:content-['餐饮'] ">Food</a>
+			<a href="#" class="side--navigation-links bg-c-red before:content-['購物'] ">Retail</a>
+			<a href="#" class="side--navigation-links bg-c-gold before:content-['文化'] ">Community</a>
+		</nav>
 		
 
 		<main id="main">

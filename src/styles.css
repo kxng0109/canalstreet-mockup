@@ -76,12 +76,29 @@
 	@apply w-auto py-4 border border-black border-solid text-3xl;
 }
 
+#container, #header{
+	max-width: calc(100% - 180px);
+}
+
 #header{
-	@apply fixed z-3 inset-x-0 flex flex-row justify-between items-center p-[1.85rem];
+	@apply fixed z-3 inset-x-0 flex flex-row justify-between items-center p-[3.5rem] md:py-[3.75rem];
 }
 
 #header--menu-icon-box{
-	@apply text-4xl flex
+	@apply text-4xl flex md:hidden
+}
+
+#side-navigation{
+	@apply hidden md:flex fixed right-0 inset-y-0
+}
+
+.side--navigation-links{
+	writing-mode: vertical-lr;
+	@apply text-center px-4 font-apercu-mono text-xl before:absolute before:top-[4.7rem] before:inset-x-0 relative;
+}
+
+.side--navigation-links:before{
+	writing-mode: horizontal-tb;
 }
 
 @keyframes moveRightShow{
@@ -137,23 +154,23 @@
 }
 
 #main{
-	@apply relative top-[300px];
+	@apply relative top-[300px] md:top-[15.6rem]
 }
 
-#main>section, footer{
-	@apply px-[1.875rem]
+#main>section, #footer, #header{
+	@apply px-[1.875rem] md:px-14
 }
 
 .first-section--text{
-	@apply text-[2.185rem] leading-[42px] font-ogg
+	@apply text-[2.185rem] leading-[42px] font-ogg md:text-[75px] md:leading-[86px] md:left-1
 }
 
 #first-image{
-	@apply relative mt-10 mb-[5.5rem] pb-[115%]
+	@apply relative mt-10 mb-[5.5rem] pb-[115%] md:pb-[100%]
 }
 
 #first-image--image{
-	@apply bg-[url("./images/first.jpg")] bg-cover w-full h-full bg-center absolute z-1
+	@apply bg-[url("./images/first.jpg")] bg-cover bg-no-repeat w-full h-full bg-center absolute z-1 md:bg-contain
 }
 
 #second-section--header{

@@ -757,6 +757,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2.25rem;
 }
 
+#container, #header{
+  max-width: calc(100% - 180px);
+}
+
 #header {
   position: fixed;
   left: 0px;
@@ -766,13 +770,65 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 1.85rem;
+  padding: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  #header {
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+  }
 }
 
 #header--menu-icon-box {
   display: flex;
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  #header--menu-icon-box {
+    display: none;
+  }
+}
+
+#side-navigation {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #side-navigation {
+    display: flex;
+  }
+}
+
+.side--navigation-links{
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  position: relative;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  font-family: apercu mono, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.side--navigation-links::before {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  content: var(--tw-content);
+  top: 4.7rem;
+}
+
+.side--navigation-links:before{
+  -ms-writing-mode: lr-tb;
+      writing-mode: horizontal-tb;
 }
 
 @-webkit-keyframes moveRightShow{
@@ -892,9 +948,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   top: 300px;
 }
 
-#main>section, footer {
+@media (min-width: 768px) {
+  #main {
+    top: 15.6rem;
+  }
+}
+
+#main>section, #footer, #header {
   padding-left: 1.875rem;
   padding-right: 1.875rem;
+}
+
+@media (min-width: 768px) {
+  #main>section, #footer, #header {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
 }
 
 .first-section--text {
@@ -903,11 +972,25 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 42px;
 }
 
+@media (min-width: 768px) {
+  .first-section--text {
+    left: 0.25rem;
+    font-size: 75px;
+    line-height: 86px;
+  }
+}
+
 #first-image {
   position: relative;
   margin-top: 2.5rem;
   margin-bottom: 5.5rem;
   padding-bottom: 115%;
+}
+
+@media (min-width: 768px) {
+  #first-image {
+    padding-bottom: 100%;
+  }
 }
 
 #first-image--image {
@@ -918,6 +1001,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-image: url("./images/first.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  #first-image--image {
+    background-size: contain;
+  }
 }
 
 #second-section--header {
@@ -1198,4 +1288,25 @@ input[type="email"]:focus {
 
 .fade {
   opacity: 0;
+}
+
+.before\:content-\[\'\9910\996E\'\]::before {
+  --tw-content: '餐饮';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'\8CFC\7269\'\]::before {
+  --tw-content: '購物';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'\6587\5316\'\]::before {
+  --tw-content: '文化';
+  content: var(--tw-content);
+}
+
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
 }
