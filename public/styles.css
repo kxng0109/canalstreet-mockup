@@ -585,22 +585,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-lines {
-  background-image: linear-gradient(to right, black 50%, transparent 0);
-}
-
-.bg-24_1 {
-  background-size: 24px 1px;
-}
-
-.bg-left-bottom {
-  background-position: left bottom;
-}
-
-.bg-repeat-x {
-  background-repeat: repeat-x;
-}
-
 .p-\[1\.875rem\] {
   padding: 1.875rem;
 }
@@ -633,6 +617,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   scroll-behavior: smooth;
   box-sizing: border-box;
   transition: all 0.3s linear;
+}
+
+*::-moz-selection{
+  color: white;
+  background: black;
+}
+
+*::selection{
+  color: white;
+  background: black;
 }
 
 ::-webkit-scrollbar{
@@ -757,8 +751,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2.25rem;
 }
 
-#container, #header{
-  max-width: calc(100% - 180px);
+@media (min-width: 768px){
+  #container, #header{
+    max-width: calc(100% - 180px);
+  }
 }
 
 #header {
@@ -778,6 +774,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-top: 3.75rem;
     padding-bottom: 3.75rem;
   }
+}
+
+#logo {
+  cursor: pointer;
 }
 
 #header--menu-icon-box {
@@ -974,7 +974,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 @media (min-width: 768px) {
   .first-section--text {
-    left: 0.25rem;
+    padding-left: 0.25rem;
     font-size: 75px;
     line-height: 86px;
   }
@@ -989,7 +989,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 @media (min-width: 768px) {
   #first-image {
-    padding-bottom: 100%;
+    margin-top: 7.5rem;
+    margin-bottom: 7.5rem;
+    padding-bottom: 63%;
   }
 }
 
@@ -1004,12 +1006,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-repeat: no-repeat;
 }
 
-@media (min-width: 768px) {
-  #first-image--image {
-    background-size: contain;
-  }
-}
-
 #second-section--header {
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -1018,8 +1014,23 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1;
 }
 
+@media (min-width: 768px) {
+  #second-section--header {
+    font-size: 7rem;
+    line-height: 9.5rem;
+  }
+}
+
 .grid-container {
   display: grid;
+}
+
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    -moz-column-gap: 4rem;
+         column-gap: 4rem;
+  }
 }
 
 .grid-children .preformatted {
@@ -1029,8 +1040,37 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.25rem;
 }
 
+.single-dash {
+  background-image: linear-gradient(to right, black 50%, transparent 0);
+  background-size: 24px 1px;
+  background-position: left bottom;
+  background-repeat: repeat-x;
+}
+
+@media (min-width: 768px) {
+  main>#third-section {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
 #third-section {
   margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  background-image: none;
+}
+
+@media (min-width: 768px) {
+  #third-section {
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-image: linear-gradient(to right, black 50%, transparent 0);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }
 
 .third-section--headers {
@@ -1042,21 +1082,42 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1;
 }
 
+@media (min-width: 768px) {
+  .third-section--headers {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
 .foreign{
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: hsla(0 0% 50%);
   -webkit-text-fill-color: transparent;
   padding-top: 4rem;
   padding-bottom: 4rem;
-  font-family: pingfang, Helvetica, sans-serif;
+  font-family: pingfang, Helvetica, sans-serif
+}
+
+@media (min-width: 768px) {
+  .foreign {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }
 
 .double-dash {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   margin-left: 2rem;
   margin-right: 2rem;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .double-dash {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
 
 .double-dash--info, .double-dash--date {
@@ -1308,5 +1369,9 @@ input[type="email"]:focus {
 @media (min-width: 768px) {
   .md\:hidden {
     display: none;
+  }
+
+  .md\:bg-none {
+    background-image: none;
   }
 }

@@ -10,6 +10,11 @@
 	transition: all 0.3s linear;
 }
 
+*::selection{
+	color: white;
+	background: black;
+}
+
 ::-webkit-scrollbar{
 	width: 0px;
 }
@@ -76,12 +81,18 @@
 	@apply w-auto py-4 border border-black border-solid text-3xl;
 }
 
-#container, #header{
-	max-width: calc(100% - 180px);
+@media (min-width: 768px){
+	#container, #header{
+		max-width: calc(100% - 180px);
+	}
 }
 
 #header{
 	@apply fixed z-3 inset-x-0 flex flex-row justify-between items-center p-[3.5rem] md:py-[3.75rem];
+}
+
+#logo{
+	@apply cursor-pointer
 }
 
 #header--menu-icon-box{
@@ -162,46 +173,54 @@
 }
 
 .first-section--text{
-	@apply text-[2.185rem] leading-[42px] font-ogg md:text-[75px] md:leading-[86px] md:left-1
+	@apply text-[2.185rem] leading-[42px] font-ogg md:text-[75px] md:leading-[86px] md:pl-1
 }
 
 #first-image{
-	@apply relative mt-10 mb-[5.5rem] pb-[115%] md:pb-[100%]
+	@apply relative mt-10 mb-[5.5rem] pb-[115%] md:pb-[63%] md:my-[7.5rem]
 }
 
 #first-image--image{
-	@apply bg-[url("./images/first.jpg")] bg-cover bg-no-repeat w-full h-full bg-center absolute z-1 md:bg-contain
+	@apply bg-[url("./images/first.jpg")] bg-cover bg-no-repeat w-full h-full bg-center absolute z-1
 }
 
 #second-section--header{
-	@apply text-6xl font-ogg my-[4rem]
+	@apply text-6xl font-ogg my-[4rem] md:text-[7rem] md:leading-[9.5rem]
 }
 
 .grid-container{
-	@apply grid;
+	@apply grid md:grid-cols-3 md:gap-x-16
 }
 
 .grid-children .preformatted{
 	@apply my-8 text-sm
 }
 
+.single-dash{
+	@apply bg-24_1 bg-lines bg-left-bottom bg-repeat-x
+}
+
+main>#third-section{
+	@apply  md:px-0
+}
+
 #third-section{
-	@apply mt-6
+	@apply mt-6 md:flex md:flex-row md:items-center md:py-16 bg-none md:bg-lines md:mx-14 mb-2
 }
 
 .third-section--headers{
-	@apply text-6xl font-ogg text-center mx-8
+	@apply text-6xl font-ogg text-center mx-8 md:mx-0
 }
 
 .foreign{
 	-webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: hsla(0 0% 50%);
     -webkit-text-fill-color: transparent;
-	@apply font-pingfang py-16;
+	@apply font-pingfang py-16 md:py-0
 }
 
 .double-dash{
-	@apply my-4 text-center mx-8;
+	@apply my-2 text-center mx-8 md:mx-0
 }
 
 .double-dash--info, .double-dash--date{

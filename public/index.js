@@ -53,7 +53,7 @@ setInterval(() =>{
 	: imagesChecker(1, 16, 23) ? fadeInImages[1].style.opacity = '1'
 	: imagesChecker(2, 28, 35) ? fadeInImages[2].style.opacity = '1'
 	: imagesChecker(3, 38, 50) ? fadeInImages[3].style.opacity = '1'
-	: console.log('lol')
+	: false
 }, 250)
 
 window.onresize = () => {return documentSize = parseInt(getComputedStyle(document.documentElement, undefined).getPropertyValue('height'))};
