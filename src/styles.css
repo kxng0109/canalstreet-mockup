@@ -7,7 +7,7 @@
 	padding: 0;
 	scroll-behavior: smooth;
 	box-sizing: border-box;
-	/*outline: 1px solid blue;*/
+	transition: all 0.3s linear;
 }
 
 ::-webkit-scrollbar{
@@ -47,7 +47,7 @@
 }
 
 .menu--options{
-	@apply text-c-black text-xl relative;
+	@apply text-c-black text-xl relative opacity-0;
 }
 
 .menu--options>a{
@@ -55,6 +55,10 @@
 }
 
 @keyframes options{
+	0%{
+		opacity: 0;
+	}
+
 	100%{
 		opacity: 1;
 	}
@@ -73,23 +77,64 @@
 }
 
 #header{
-	@apply fixed z-2 inset-x-0 flex flex-row justify-between items-center p-[1.85rem];
+	@apply fixed z-3 inset-x-0 flex flex-row justify-between items-center p-[1.85rem];
 }
 
 #header--menu-icon-box{
-	@apply text-4xl flex overflow-hidden;
+	@apply text-4xl flex
 }
 
-/*@keyframes moveLeft{
-	0{
+@keyframes moveRightShow{
+	0%{
 		opacity: 0;
-		transform: translateX(40px);
+		transform: translateX(0px);
+		pointer-events: none;
 	}
 	100%{
 		opacity: 1;
 		transform: translateX(40px);
+		pointer-events: auto;
 	}
-}*/
+}
+
+@keyframes moveRightHide{
+	0%{
+		opacity: 1;
+		transform: translateX(0px);
+		pointer-events: auto;
+	}
+	100%{
+		opacity: 0;
+		transform: translateX(20px);
+		pointer-events: none;
+	}
+}
+
+@keyframes moveLeftShow{
+	0%{
+		opacity: 0;
+		transform: translateX(20px);
+		pointer-events: auto;
+	}
+	100%{
+		opacity: 1;
+		transform: translateX(0px);
+		pointer-events: none;
+	}
+}
+
+@keyframes moveLeftHide{
+	0%{
+		opacity: 1;
+		transform: translateX(40px);
+		pointer-events: none;
+	}
+	100%{
+		opacity: 0;
+		transform: translateX(0px);
+		pointer-events: auto;
+	}
+}
 
 #main{
 	@apply relative top-[300px];
@@ -173,7 +218,9 @@
 								linear-gradient(to bottom, black 50%, transparent 0);
 	background-position: 0 0, 100% 0, 0% 100%, 0 0%;
 	background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
-	background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;}
+	background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+	@apply focus-within:animate-movingLines active:animate-movingLines cursor-pointer hover:animate-movingLines
+}
 
 @keyframes moving-lines{
 	0%{
@@ -239,4 +286,8 @@ input[type="email"]{
 
 .footer--input-email-enter-btn{
 	@apply text-xl cursor-pointer
+}
+
+.fade{
+	@apply opacity-0;
 }

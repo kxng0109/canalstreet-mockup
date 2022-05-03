@@ -10,11 +10,11 @@ module.exports = {
 				"c-white": "#fff",
 			},
 			animation:{
-				"option-1" : "food 0.25s linear forwards",
-				"option-2" : "food 0.25s linear 0.1s forwards",
-				"option-3" : "food 0.25s linear 0.2s forwards",
-				"option-4" : "food 0.25s linear 0.3s forwards",
-				"moveLeft" : "moveLeft 0.3s linear forwards",
+				"option-0" : "options 0.25s linear forwards",
+				"option-1" : "options 0.25s linear 0.1s forwards",
+				"option-2" : "options 0.25s linear 0.2s forwards",
+				"option-3" : "options 0.25s linear 0.3s forwards",
+				"option-4" : "options 0.25s linear 0.4s forwards",
 				"movingLines" : "0.4s moving-lines linear infinite forwards"
 			},
 			zIndex:{

@@ -502,8 +502,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.absolute {
-  position: absolute;
+.fixed {
+  position: fixed;
 }
 
 .inset-0 {
@@ -543,26 +543,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.animate-option-1 {
-  -webkit-animation: food 0.25s linear forwards;
-          animation: food 0.25s linear forwards;
-}
-
-.animate-option-2 {
-  -webkit-animation: food 0.25s linear 0.1s forwards;
-          animation: food 0.25s linear 0.1s forwards;
-}
-
-.animate-option-3 {
-  -webkit-animation: food 0.25s linear 0.2s forwards;
-          animation: food 0.25s linear 0.2s forwards;
-}
-
-.animate-option-4 {
-  -webkit-animation: food 0.25s linear 0.3s forwards;
-          animation: food 0.25s linear 0.3s forwards;
-}
-
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -576,9 +556,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   overflow-y: auto;
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .bg-c-white {
@@ -599,6 +578,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-c-gold {
   --tw-bg-opacity: 1;
   background-color: rgb(255 180 0 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-lines {
@@ -648,7 +632,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 0;
   scroll-behavior: smooth;
   box-sizing: border-box;
-  /*outline: 1px solid blue;*/
+  transition: all 0.3s linear;
 }
 
 ::-webkit-scrollbar{
@@ -713,6 +697,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.75rem;
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+  opacity: 0;
 }
 
 .menu--options>a {
@@ -725,12 +710,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @-webkit-keyframes options{
+  0%{
+    opacity: 0;
+  }
+
   100%{
     opacity: 1;
   }
 }
 
 @keyframes options{
+  0%{
+    opacity: 0;
+  }
+
   100%{
     opacity: 1;
   }
@@ -768,7 +761,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: fixed;
   left: 0px;
   right: 0px;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -778,21 +771,121 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #header--menu-icon-box {
   display: flex;
-  overflow: hidden;
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
 
-/*@keyframes moveLeft{
-	0{
-		opacity: 0;
-		transform: translateX(40px);
-	}
-	100%{
-		opacity: 1;
-		transform: translateX(40px);
-	}
-}*/
+@-webkit-keyframes moveRightShow{
+  0%{
+    opacity: 0;
+    transform: translateX(0px);
+    pointer-events: none;
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateX(40px);
+    pointer-events: auto;
+  }
+}
+
+@keyframes moveRightShow{
+  0%{
+    opacity: 0;
+    transform: translateX(0px);
+    pointer-events: none;
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateX(40px);
+    pointer-events: auto;
+  }
+}
+
+@-webkit-keyframes moveRightHide{
+  0%{
+    opacity: 1;
+    transform: translateX(0px);
+    pointer-events: auto;
+  }
+
+  100%{
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: none;
+  }
+}
+
+@keyframes moveRightHide{
+  0%{
+    opacity: 1;
+    transform: translateX(0px);
+    pointer-events: auto;
+  }
+
+  100%{
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: none;
+  }
+}
+
+@-webkit-keyframes moveLeftShow{
+  0%{
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: auto;
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateX(0px);
+    pointer-events: none;
+  }
+}
+
+@keyframes moveLeftShow{
+  0%{
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: auto;
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateX(0px);
+    pointer-events: none;
+  }
+}
+
+@-webkit-keyframes moveLeftHide{
+  0%{
+    opacity: 1;
+    transform: translateX(40px);
+    pointer-events: none;
+  }
+
+  100%{
+    opacity: 0;
+    transform: translateX(0px);
+    pointer-events: auto;
+  }
+}
+
+@keyframes moveLeftHide{
+  0%{
+    opacity: 1;
+    transform: translateX(40px);
+    pointer-events: none;
+  }
+
+  100%{
+    opacity: 0;
+    transform: translateX(0px);
+    pointer-events: auto;
+  }
+}
 
 #main {
   position: relative;
@@ -931,6 +1024,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-position: 0 0, 100% 0, 0% 100%, 0 0%;
   background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
   background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+  cursor: pointer
+}
+
+.moving-lines:focus-within {
+  -webkit-animation: 0.4s moving-lines linear infinite forwards;
+          animation: 0.4s moving-lines linear infinite forwards;
+}
+
+.moving-lines:hover {
+  -webkit-animation: 0.4s moving-lines linear infinite forwards;
+          animation: 0.4s moving-lines linear infinite forwards;
+}
+
+.moving-lines:active {
+  -webkit-animation: 0.4s moving-lines linear infinite forwards;
+          animation: 0.4s moving-lines linear infinite forwards;
 }
 
 @-webkit-keyframes moving-lines{
@@ -992,6 +1101,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-position: 0 0, 100% 0, 0% 100%, 0 0%;
   background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
   background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+  cursor: pointer;
+}
+
+.footer--reach-us:focus-within {
+  -webkit-animation: 0.4s moving-lines linear infinite forwards;
+          animation: 0.4s moving-lines linear infinite forwards;
+}
+
+.footer--reach-us:hover {
+  -webkit-animation: 0.4s moving-lines linear infinite forwards;
+          animation: 0.4s moving-lines linear infinite forwards;
+}
+
+.footer--reach-us:active {
+  -webkit-animation: 0.4s moving-lines linear infinite forwards;
+          animation: 0.4s moving-lines linear infinite forwards;
 }
 
 .footer--reach-us-icon {
@@ -1073,4 +1198,8 @@ input[type="email"]:focus {
   cursor: pointer;
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.fade {
+  opacity: 0;
 }
