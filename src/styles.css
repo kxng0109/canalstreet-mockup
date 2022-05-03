@@ -169,11 +169,11 @@
 }
 
 #third-section{
-	@apply mt-6 /*bg-24_1 bg-lines bg-left-bottom bg-repeat-x */
-}/*py-0 mx-[1.875rem]*/
+	@apply mt-6
+}
 
 .third-section--headers{
-	@apply text-6xl font-ogg text-center w-75 mx-auto
+	@apply text-6xl font-ogg text-center mx-8
 }
 
 .foreign{
@@ -184,7 +184,7 @@
 }
 
 .double-dash{
-	@apply my-4 text-center w-75 mx-auto;
+	@apply my-4 text-center mx-8;
 }
 
 .double-dash--info, .double-dash--date{
