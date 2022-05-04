@@ -502,6 +502,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
+.moving-lines{
+  background-image: linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0), 
+									linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0);
+  background-position: 0 0, 100% 0, 0% 100%, 0 0%;
+  background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
+  background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+}
+
 .fixed {
   position: fixed;
 }
@@ -1057,19 +1067,51 @@ Ensure the default browser behavior of the `hidden` attribute.
 #third-section {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
-  background-image: none;
 }
 
 @media (min-width: 768px) {
-  #third-section {
+  #third-section{
+    background-image: linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0), 
+									linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0);
+    background-position: 0 0, 100% 0, 0% 100%, 0 0%;
+    background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
+    background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
     margin-left: 3.5rem;
     margin-right: 3.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-image: linear-gradient(to right, black 50%, transparent 0);
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }
+}
+
+#third-section{
+  background-position: 0 100%, 100% 0, 0% 100%, 0 0%;
+  background-size: 0 0, 0 0, 30px 1px, 0 0;
+  -webkit-animation: 1s moving-lines-different linear infinite forwards;
+          animation: 1s moving-lines-different linear infinite forwards;
+}
+
+@-webkit-keyframes moving-lines-different{
+  0%{
+    background-position: 0 100%, 100% 0, 0% 100%, 0 0%;
+  }
+
+  100%{
+    background-position: -30px 100%, 100% 30px, 30px 100%, 0 -30px;
+  }
+}
+
+@keyframes moving-lines-different{
+  0%{
+    background-position: 0 100%, 100% 0, 0% 100%, 0 0%;
+  }
+
+  100%{
+    background-position: -30px 100%, 100% 30px, 30px 100%, 0 -30px;
   }
 }
 
@@ -1127,6 +1169,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-repeat: repeat-x;
 }
 
+@media (min-width: 768px) {
+  .double-dash--info, .double-dash--date {
+    background-image: none;
+    line-height: 1.375;
+  }
+}
+
 .double-dash--date {
   background-position: left top;
   padding-top: 2.75rem;
@@ -1135,10 +1184,23 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1rem;
 }
 
+@media (min-width: 768px) {
+  .double-dash--date {
+    padding-top: 0px;
+  }
+}
+
 .double-dash--info {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
   padding-bottom: 2.75rem;
+}
+
+@media (min-width: 768px) {
+  .double-dash--info {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 .double-dash:last-of-type {
@@ -1150,41 +1212,89 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 1rem;
 }
 
+@media (min-width: 768px) {
+  .double-dash:last-of-type {
+    background-image: none;
+  }
+
+  main>#fourth-section {
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+#fourth-section {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  #fourth-section{
+    background-image: linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0), 
+									linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0);
+    background-position: 0 0, 100% 0, 0% 100%, 0 0%;
+    background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
+    background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+    -webkit-animation: 1s moving-lines linear infinite forwards;
+            animation: 1s moving-lines linear infinite forwards;
+    padding-top: 3rem;
+    padding-bottom: 1.75rem;
+  }
+}
+
+#fourth-section{
+  background-size: 30px 1px, 0px 0px, 30px 1px, 0px 0px;
+}
+
 .fourth-section--link {
   margin-top: 3.25rem;
   margin-bottom: 3.25rem;
 }
 
+@media (min-width: 768px) {
+  .fourth-section--link {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    z-index: 1;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-bottom: -2.25rem;
+    width: auto;
+    --tw-translate-x: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
 #fifth-section--location {
   margin-bottom: 2rem;
+  cursor: pointer;
   padding: 3.25rem;
   text-align: center;
   font-family: ogg, Helvetica, sans-serif;
   font-size: 2.5rem;
 }
 
-.moving-lines{
-  background-image: linear-gradient(to right, black 50%, transparent 0), 
-								linear-gradient(to bottom, black 50%, transparent 0), 
-								linear-gradient(to right, black 50%, transparent 0), 
-								linear-gradient(to bottom, black 50%, transparent 0);
-  background-position: 0 0, 100% 0, 0% 100%, 0 0%;
-  background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
-  background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
-  cursor: pointer
-}
-
-.moving-lines:focus-within {
+#fifth-section--location:focus-within {
   -webkit-animation: 0.4s moving-lines linear infinite forwards;
           animation: 0.4s moving-lines linear infinite forwards;
 }
 
-.moving-lines:hover {
+#fifth-section--location:hover {
   -webkit-animation: 0.4s moving-lines linear infinite forwards;
           animation: 0.4s moving-lines linear infinite forwards;
 }
 
-.moving-lines:active {
+#fifth-section--location:active {
   -webkit-animation: 0.4s moving-lines linear infinite forwards;
           animation: 0.4s moving-lines linear infinite forwards;
 }
@@ -1238,17 +1348,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 4rem;
 }
 
-.footer--reach-us {
-  margin-bottom: 1.875rem;
-  text-align: center;
+.footer--reach-us{
   background-image: linear-gradient(to right, black 50%, transparent 0), 
-								linear-gradient(to bottom, black 50%, transparent 0), 
-								linear-gradient(to right, black 50%, transparent 0), 
-								linear-gradient(to bottom, black 50%, transparent 0);
+									linear-gradient(to bottom, black 50%, transparent 0), 
+									linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0);
   background-position: 0 0, 100% 0, 0% 100%, 0 0%;
   background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
   background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+  margin-bottom: 1.875rem;
   cursor: pointer;
+  text-align: center;
 }
 
 .footer--reach-us:focus-within {

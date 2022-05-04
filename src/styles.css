@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components{
+	.moving-lines{	
+		background-image: linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0), 
+									linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0);
+		background-position: 0 0, 100% 0, 0% 100%, 0 0%;
+		background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
+		background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+	}
+}
+
 *, *:before, *:after{
 	margin: 0;
 	padding: 0;
@@ -204,8 +216,25 @@ main>#third-section{
 	@apply  md:px-0
 }
 
+.moving-lines-different{
+	background-position: 0 100%, 100% 0, 0% 100%, 0 0%;
+	background-size: 30px 1px, 0 0, 30px 1px, 0 0;
+	animation: 1s moving-lines-different linear infinite forwards;
+}
+
 #third-section{
-	@apply mt-6 md:flex md:flex-row md:items-center md:py-16 bg-none md:bg-lines md:mx-14 mb-2
+	@apply mt-6 md:flex md:flex-row md:items-center md:py-16 md:mx-14 mb-2 md:moving-lines-different;
+	background-size: 0 0, 0 0, 30px 1px, 0 0;
+}
+
+@keyframes moving-lines-different{
+	0%{
+		background-position: 0 100%, 100% 0, 0% 100%, 0 0%;
+	}
+
+	100%{
+		background-position: -30px 100%, 100% 30px, 30px 100%, 0 -30px;
+	}
 }
 
 .third-section--headers{
@@ -224,38 +253,36 @@ main>#third-section{
 }
 
 .double-dash--info, .double-dash--date{
-	@apply bg-24_1 bg-lines bg-left-bottom bg-repeat-x
+	@apply bg-24_1 bg-lines bg-left-bottom bg-repeat-x md:bg-none md:leading-snug
 }
 
 .double-dash--date{
-	@apply bg-left-top pt-11 pb-4 text-xs
+	@apply bg-left-top pt-11 pb-4 text-xs md:pt-0
 }
 
 .double-dash--info{
-	@apply pb-11 px-5
+	@apply pb-11 px-5 md:px-0
 }
 
 .double-dash:last-of-type{
-	@apply bg-24_1 bg-lines bg-left-bottom bg-repeat-x mb-0 pb-4
+	@apply bg-24_1 bg-lines bg-left-bottom bg-repeat-x mb-0 pb-4 md:bg-none
+}
+
+main>#fourth-section{
+	@apply md:px-0 md:mx-14 md:my-3
+}
+
+#fourth-section{
+	@apply md:pt-12 md:pb-7 relative md:moving-lines md:moving-lines-different;
+	background-size: 30px 1px, 0px 0px, 30px 1px, 0px 0px;
 }
 
 .fourth-section--link{
-	@apply my-[3.25rem]
+	@apply my-[3.25rem] md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 md:my-0 md:w-auto md:py-4 md:px-14 md:-mb-9 md:z-1
 }
 
 #fifth-section--location{
-	@apply text-[2.5rem] font-ogg p-[3.25rem] text-center mb-8;
-}
-
-.moving-lines{	
-	background-image: linear-gradient(to right, black 50%, transparent 0), 
-								linear-gradient(to bottom, black 50%, transparent 0), 
-								linear-gradient(to right, black 50%, transparent 0), 
-								linear-gradient(to bottom, black 50%, transparent 0);
-	background-position: 0 0, 100% 0, 0% 100%, 0 0%;
-	background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
-	background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
-	@apply focus-within:animate-movingLines active:animate-movingLines cursor-pointer hover:animate-movingLines
+	@apply text-[2.5rem] font-ogg p-[3.25rem] text-center mb-8 focus-within:animate-movingLines active:animate-movingLines cursor-pointer hover:animate-movingLines;
 }
 
 @keyframes moving-lines{
@@ -289,7 +316,7 @@ main>#third-section{
 }
 
 .footer--reach-us{
-	@apply text-center moving-lines mb-[1.875rem]
+	@apply text-center moving-lines mb-[1.875rem] focus-within:animate-movingLines active:animate-movingLines cursor-pointer hover:animate-movingLines
 }
 
 .footer--reach-us-icon{

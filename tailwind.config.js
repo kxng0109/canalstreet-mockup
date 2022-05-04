@@ -15,7 +15,8 @@ module.exports = {
 				"option-2" : "options 0.25s linear 0.2s forwards",
 				"option-3" : "options 0.25s linear 0.3s forwards",
 				"option-4" : "options 0.25s linear 0.4s forwards",
-				"movingLines" : "0.4s moving-lines linear infinite forwards"
+				"movingLines" : "0.4s moving-lines linear infinite forwards",
+				"movingLinesSlower" : "1s moving-lines linear infinite forwards"
 			},
 			zIndex:{
 				'1' : '1',
