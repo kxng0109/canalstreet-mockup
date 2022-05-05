@@ -16,7 +16,7 @@ module.exports = {
 				"option-3" : "options 0.25s linear 0.3s forwards",
 				"option-4" : "options 0.25s linear 0.4s forwards",
 				"movingLines" : "0.4s moving-lines linear infinite forwards",
-				"movingLinesSlower" : "1s moving-lines linear infinite forwards"
+				"movingLinesSlower" : "0.8s moving-lines-different linear infinite forwards"
 			},
 			zIndex:{
 				'1' : '1',
@@ -32,10 +32,15 @@ module.exports = {
 				'pingfang' : 'pingfang, Helvetica, sans-serif',
 			},
 			backgroundImage:{
-				'lines' : 'linear-gradient(to right, black 50%, transparent 0)'
+				'lines' : 'linear-gradient(to right, black 50%, transparent 0)',
+				'two-lines' : 'linear-gradient(to right, black 50%, transparent 0), linear-gradient(to right, black 50%, transparent 0)'
 			},
 			backgroundSize:{
-				'24_1':'24px 1px'
+				'24_1':'24px 1px',
+				'24_1_2' : '24px 1px, 24px 1px'
+			},
+			backgroundPosition:{
+				'up-down' : '0 0, 0 100%'
 			},
 			width:{
 				'75' : '300px'

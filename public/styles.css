@@ -502,16 +502,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.moving-lines{
-  background-image: linear-gradient(to right, black 50%, transparent 0), 
-									linear-gradient(to bottom, black 50%, transparent 0), 
-									linear-gradient(to right, black 50%, transparent 0), 
-									linear-gradient(to bottom, black 50%, transparent 0);
-  background-position: 0 0, 100% 0, 0% 100%, 0 0%;
-  background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
-  background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
-}
-
 .fixed {
   position: fixed;
 }
@@ -619,6 +609,46 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .opacity-0 {
   opacity: 0;
+}
+
+@-webkit-keyframes moving-lines-different{
+  0%{
+    background-position: 0 0%, 0% 100%;
+  }
+
+  100%{
+    background-position: 24px 0%, -24px 100%;
+  }
+}
+
+@keyframes moving-lines-different{
+  0%{
+    background-position: 0 0%, 0% 100%;
+  }
+
+  100%{
+    background-position: 24px 0%, -24px 100%;
+  }
+}
+
+@-webkit-keyframes moving-lines{
+  0%{
+    background-position: 0 0, 100% 0, 0% 100%, 0 0%;
+  }
+
+  100%{
+    background-position: 30px 0, 100% 30px, -30px 100%, 0 -30px;
+  }
+}
+
+@keyframes moving-lines{
+  0%{
+    background-position: 0 0, 100% 0, 0% 100%, 0 0%;
+  }
+
+  100%{
+    background-position: 30px 0, 100% 30px, -30px 100%, 0 -30px;
+  }
 }
 
 *, *:before, *:after{
@@ -749,6 +779,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .widelink {
+    width: 11.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
 .menu--socials {
   width: auto;
   border-width: 1px;
@@ -768,6 +806,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 #header {
+  pointer-events: none;
   position: fixed;
   left: 0px;
   right: 0px;
@@ -776,17 +815,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 3.5rem;
+  padding: 1.85rem;
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
 }
 
 @media (min-width: 768px) {
   #header {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
     padding-top: 3.75rem;
     padding-bottom: 3.75rem;
   }
 }
 
 #logo {
+  pointer-events: auto;
   cursor: pointer;
 }
 
@@ -964,15 +1008,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-#main>section, #footer, #header {
+#main>section, #footer {
   padding-left: 1.875rem;
   padding-right: 1.875rem;
 }
 
 @media (min-width: 768px) {
-  #main>section, #footer, #header {
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
+  #main>section, #footer {
+    padding-left: 3.75rem;
+    padding-right: 3.75rem;
   }
 }
 
@@ -984,7 +1028,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 @media (min-width: 768px) {
   .first-section--text {
-    padding-left: 0.25rem;
     font-size: 75px;
     line-height: 86px;
   }
@@ -1070,14 +1113,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 768px) {
-  #third-section{
-    background-image: linear-gradient(to right, black 50%, transparent 0), 
-									linear-gradient(to bottom, black 50%, transparent 0), 
-									linear-gradient(to right, black 50%, transparent 0), 
-									linear-gradient(to bottom, black 50%, transparent 0);
-    background-position: 0 0, 100% 0, 0% 100%, 0 0%;
-    background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
-    background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+  #third-section {
     margin-left: 3.5rem;
     margin-right: 3.5rem;
     display: flex;
@@ -1085,33 +1121,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     align-items: center;
     padding-top: 4rem;
     padding-bottom: 4rem;
-  }
-}
-
-#third-section{
-  background-position: 0 100%, 100% 0, 0% 100%, 0 0%;
-  background-size: 0 0, 0 0, 30px 1px, 0 0;
-  -webkit-animation: 1s moving-lines-different linear infinite forwards;
-          animation: 1s moving-lines-different linear infinite forwards;
-}
-
-@-webkit-keyframes moving-lines-different{
-  0%{
-    background-position: 0 100%, 100% 0, 0% 100%, 0 0%;
-  }
-
-  100%{
-    background-position: -30px 100%, 100% 30px, 30px 100%, 0 -30px;
-  }
-}
-
-@keyframes moving-lines-different{
-  0%{
-    background-position: 0 100%, 100% 0, 0% 100%, 0 0%;
-  }
-
-  100%{
-    background-position: -30px 100%, 100% 30px, 30px 100%, 0 -30px;
   }
 }
 
@@ -1128,6 +1137,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   .third-section--headers {
     margin-left: 0px;
     margin-right: 0px;
+    margin-right: 3.5rem;
+    font-size: 6rem;
+    line-height: 1;
   }
 }
 
@@ -1137,7 +1149,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   -webkit-text-fill-color: transparent;
   padding-top: 4rem;
   padding-bottom: 4rem;
-  font-family: pingfang, Helvetica, sans-serif
+  font-family: pingfang, Helvetica, sans-serif;
+  font-size: 3.75rem;
+  line-height: 1
 }
 
 @media (min-width: 768px) {
@@ -1147,76 +1161,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.double-dash {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  text-align: center;
+.foreign:last-of-type {
+  padding-bottom: 3.5rem;
 }
 
 @media (min-width: 768px) {
-  .double-dash {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-}
-
-.double-dash--info, .double-dash--date {
-  background-image: linear-gradient(to right, black 50%, transparent 0);
-  background-size: 24px 1px;
-  background-position: left bottom;
-  background-repeat: repeat-x;
-}
-
-@media (min-width: 768px) {
-  .double-dash--info, .double-dash--date {
-    background-image: none;
-    line-height: 1.375;
-  }
-}
-
-.double-dash--date {
-  background-position: left top;
-  padding-top: 2.75rem;
-  padding-bottom: 1rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-@media (min-width: 768px) {
-  .double-dash--date {
+  .foreign:last-of-type {
     padding-top: 0px;
+    padding-bottom: 0px;
   }
 }
 
-.double-dash--info {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-bottom: 2.75rem;
-}
-
-@media (min-width: 768px) {
-  .double-dash--info {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-}
-
-.double-dash:last-of-type {
-  margin-bottom: 0px;
+.static-lines {
   background-image: linear-gradient(to right, black 50%, transparent 0);
   background-size: 24px 1px;
-  background-position: left bottom;
   background-repeat: repeat-x;
-  padding-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
-  .double-dash:last-of-type {
-    background-image: none;
-  }
-
   main>#fourth-section {
     margin-left: 3.5rem;
     margin-right: 3.5rem;
@@ -1232,28 +1194,115 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 768px) {
-  #fourth-section{
-    background-image: linear-gradient(to right, black 50%, transparent 0), 
-									linear-gradient(to bottom, black 50%, transparent 0), 
-									linear-gradient(to right, black 50%, transparent 0), 
-									linear-gradient(to bottom, black 50%, transparent 0);
-    background-position: 0 0, 100% 0, 0% 100%, 0 0%;
-    background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
-    background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
-    -webkit-animation: 1s moving-lines linear infinite forwards;
-            animation: 1s moving-lines linear infinite forwards;
-    padding-top: 3rem;
-    padding-bottom: 1.75rem;
+  #fourth-section {
+    background-image: linear-gradient(to right, black 50%, transparent 0), linear-gradient(to right, black 50%, transparent 0);
+    background-size: 24px 1px, 24px 1px;
+    background-position: 0 0, 0 100%;
+    background-repeat: repeat-x;
+  }
+
+  @media (min-width: 768px) {
+    #fourth-section {
+      -webkit-animation: 0.8s moving-lines-different linear infinite forwards;
+              animation: 0.8s moving-lines-different linear infinite forwards;
+    }
+  }
+
+  #fourth-section {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 }
 
-#fourth-section{
-  background-size: 30px 1px, 0px 0px, 30px 1px, 0px 0px;
+#fourth-section--div {
+  background-image: linear-gradient(to right, black 50%, transparent 0), linear-gradient(to right, black 50%, transparent 0);
+  background-size: 24px 1px, 24px 1px;
+  background-position: 0 0, 0 100%;
+  background-repeat: repeat-x;
+}
+
+@media (min-width: 768px) {
+  #fourth-section--div {
+    -webkit-animation: 0.8s moving-lines-different linear infinite forwards;
+            animation: 0.8s moving-lines-different linear infinite forwards;
+  }
+}
+
+#fourth-section--div {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  #fourth-section--div {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.double-dash {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .double-dash {
+    margin-top: 3.4rem;
+    margin-bottom: 4.5rem;
+  }
+}
+
+.double-dash--info, .double-dash--date {
+  background-image: linear-gradient(to right, black 50%, transparent 0);
+  background-size: 24px 1px;
+  background-repeat: repeat-x;
+}
+
+@media (min-width: 768px) {
+  .double-dash--info, .double-dash--date {
+    background-image: none;
+    line-height: 1.375;
+  }
+}
+
+.double-dash--date {
+  background-position: left top;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@media (min-width: 768px) {
+  .double-dash--date {
+    padding-top: 0px;
+  }
+}
+
+.double-dash--info {
+  background-position: left bottom;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-bottom: 3rem;
+  line-height: 1.375;
+}
+
+@media (min-width: 768px) {
+  .double-dash--info {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+  }
 }
 
 .fourth-section--link {
-  margin-top: 3.25rem;
-  margin-bottom: 3.25rem;
+  margin-top: 3.55rem;
+  margin-bottom: 3.55rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 768px) {
@@ -1261,67 +1310,118 @@ Ensure the default browser behavior of the `hidden` attribute.
     position: absolute;
     bottom: 0px;
     left: 50%;
-    z-index: 1;
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-bottom: -2.25rem;
-    width: auto;
+    margin-bottom: -1.5rem;
     --tw-translate-x: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
+  }
+}
+
+#fifth-section {
+  display: grid;
+}
+
+@media (min-width: 768px) {
+  #fifth-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem;
+  }
+}
+
+#fifth-section--location, #fifth-section--address{
+  background-image: linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0), 
+									linear-gradient(to right, black 50%, transparent 0), 
+									linear-gradient(to bottom, black 50%, transparent 0);
+  background-position: 0 0, 100% 0, 0% 100%, 0 0%;
+  background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
+  background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+#fifth-section--location:focus-within, #fifth-section--address:focus-within {
+  -webkit-animation: 0.4s moving-lines linear infinite forwards;
+          animation: 0.4s moving-lines linear infinite forwards;
+}
+
+#fifth-section--location:hover, #fifth-section--address:hover {
+  -webkit-animation: 0.4s moving-lines linear infinite forwards;
+          animation: 0.4s moving-lines linear infinite forwards;
+}
+
+#fifth-section--location:focus, #fifth-section--address:focus {
+  -webkit-animation: 0.4s moving-lines linear infinite forwards;
+          animation: 0.4s moving-lines linear infinite forwards;
+}
+
+#fifth-section--location:active, #fifth-section--address:active {
+  -webkit-animation: 0.4s moving-lines linear infinite forwards;
+          animation: 0.4s moving-lines linear infinite forwards;
+}
+
+@media (min-width: 768px) {
+  #fifth-section--location, #fifth-section--address {
+    margin-bottom: 4.5rem;
+    margin-top: 8.5rem;
   }
 }
 
 #fifth-section--location {
-  margin-bottom: 2rem;
-  cursor: pointer;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #fifth-section--location {
+    display: block;
+  }
+}
+
+#fifth-section--location>img {
+  position: relative;
+  z-index: -1;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#fifth-section--address {
   padding: 3.25rem;
   text-align: center;
   font-family: ogg, Helvetica, sans-serif;
   font-size: 2.5rem;
 }
 
-#fifth-section--location:focus-within {
-  -webkit-animation: 0.4s moving-lines linear infinite forwards;
-          animation: 0.4s moving-lines linear infinite forwards;
-}
-
-#fifth-section--location:hover {
-  -webkit-animation: 0.4s moving-lines linear infinite forwards;
-          animation: 0.4s moving-lines linear infinite forwards;
-}
-
-#fifth-section--location:active {
-  -webkit-animation: 0.4s moving-lines linear infinite forwards;
-          animation: 0.4s moving-lines linear infinite forwards;
-}
-
-@-webkit-keyframes moving-lines{
-  0%{
-    background-position: 0 0, 100% 0, 0% 100%, 0 0%;
-  }
-
-  100%{
-    background-position: 30px 0, 100% 30px, -30px 100%, 0 -30px;
-  }
-}
-
-@keyframes moving-lines{
-  0%{
-    background-position: 0 0, 100% 0, 0% 100%, 0 0%;
-  }
-
-  100%{
-    background-position: 30px 0, 100% 30px, -30px 100%, 0 -30px;
+@media (min-width: 768px) {
+  #fifth-section--address {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    font-size: 3.75rem;
+    line-height: 1.375;
   }
 }
 
 #sixth-section--div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  #sixth-section--div {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+  }
+}
+
+#sixth-section--div{
   background-image: repeating-linear-gradient(-74deg,rgba(0,0,0,.2),rgba(0,0,0,.2) 1px,transparent 0,transparent 4px),repeating-linear-gradient(-74deg,rgba(0,0,0,.2),rgba(0,0,0,.2) 1px,transparent 0,transparent 4px);
   background-position: 0 0,0 100%;
   background-size: 100% 12px,100% 12px;
@@ -1336,6 +1436,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-family: ogg, Helvetica, sans-serif;
   font-size: 1.5rem;
   line-height: 2rem;
+  line-height: 1.375;
+}
+
+@media (min-width: 768px) {
+  #sixth-section--vendor {
+    font-size: 2.8125rem;
+  }
 }
 
 .sixth-section--vendor-link {
@@ -1374,6 +1481,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 .footer--reach-us:active {
   -webkit-animation: 0.4s moving-lines linear infinite forwards;
           animation: 0.4s moving-lines linear infinite forwards;
+}
+
+#footer>div {
+  display: grid;
+}
+
+@media (min-width: 768px) {
+  #footer>div {
+    -moz-column-gap: 4rem;
+         column-gap: 4rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .footer--reach-us-icon {
@@ -1479,9 +1598,5 @@ input[type="email"]:focus {
 @media (min-width: 768px) {
   .md\:hidden {
     display: none;
-  }
-
-  .md\:bg-none {
-    background-image: none;
   }
 }

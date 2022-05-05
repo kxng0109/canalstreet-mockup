@@ -12,6 +12,30 @@
 		background-size: 30px 1px, 1px 30px, 30px 1px, 1px 30px;
 		background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
 	}
+
+	.two-static-lines{
+		@apply bg-24_1_2 bg-two-lines bg-up-down bg-repeat-x md:animate-movingLinesSlower
+	}
+}
+
+@keyframes moving-lines-different{
+	0%{
+		background-position: 0 0%, 0% 100%;
+	}
+
+	100%{
+		background-position: 24px 0%, -24px 100%;
+	}
+}
+
+@keyframes moving-lines{
+	0%{
+		background-position: 0 0, 100% 0, 0% 100%, 0 0%;
+	}
+
+	100%{
+		background-position: 30px 0, 100% 30px, -30px 100%, 0 -30px;
+	}
 }
 
 *, *:before, *:after{
@@ -86,7 +110,7 @@
 }
 
 .widelink{
-	@apply  text-center border border-black border-solid w-full block p-5 mb-5;
+	@apply  text-center border border-black border-solid w-full block p-5 mb-5 md:w-[11.25rem] md:py-4;
 }
 
 .menu--socials{
@@ -100,11 +124,11 @@
 }
 
 #header{
-	@apply fixed z-3 inset-x-0 flex flex-row justify-between items-center p-[3.5rem] md:py-[3.75rem];
+	@apply fixed z-3 inset-x-0 flex flex-row justify-between items-center px-[1.875rem] md:px-14 p-[1.85rem] md:py-[3.75rem] pointer-events-none;
 }
 
 #logo{
-	@apply cursor-pointer
+	@apply cursor-pointer pointer-events-auto
 }
 
 #header--menu-icon-box{
@@ -180,12 +204,12 @@
 	@apply relative top-[300px] md:top-[15.6rem]
 }
 
-#main>section, #footer, #header{
-	@apply px-[1.875rem] md:px-14
+#main>section, #footer{
+	@apply px-[1.875rem]  md:px-[3.75rem]
 }
 
 .first-section--text{
-	@apply text-[2.185rem] leading-[42px] font-ogg md:text-[75px] md:leading-[86px] md:pl-1
+	@apply text-[2.185rem] leading-[42px] font-ogg md:text-[75px] md:leading-[86px] 
 }
 
 #first-image{
@@ -216,56 +240,27 @@ main>#third-section{
 	@apply  md:px-0
 }
 
-.moving-lines-different{
-	background-position: 0 100%, 100% 0, 0% 100%, 0 0%;
-	background-size: 30px 1px, 0 0, 30px 1px, 0 0;
-	animation: 1s moving-lines-different linear infinite forwards;
-}
-
 #third-section{
-	@apply mt-6 md:flex md:flex-row md:items-center md:py-16 md:mx-14 mb-2 md:moving-lines-different;
-	background-size: 0 0, 0 0, 30px 1px, 0 0;
-}
-
-@keyframes moving-lines-different{
-	0%{
-		background-position: 0 100%, 100% 0, 0% 100%, 0 0%;
-	}
-
-	100%{
-		background-position: -30px 100%, 100% 30px, 30px 100%, 0 -30px;
-	}
+	@apply mt-6 md:flex md:flex-row md:items-center md:py-16 md:mx-14 mb-2;
 }
 
 .third-section--headers{
-	@apply text-6xl font-ogg text-center mx-8 md:mx-0
+	@apply text-6xl font-ogg text-center mx-8 md:mx-0 md:text-8xl md:mr-14
 }
 
 .foreign{
 	-webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: hsla(0 0% 50%);
     -webkit-text-fill-color: transparent;
-	@apply font-pingfang py-16 md:py-0
+	@apply font-pingfang py-16 md:py-0 text-6xl
 }
 
-.double-dash{
-	@apply my-2 text-center mx-8 md:mx-0
+.foreign:last-of-type{
+	@apply pb-14 md:py-0
 }
 
-.double-dash--info, .double-dash--date{
-	@apply bg-24_1 bg-lines bg-left-bottom bg-repeat-x md:bg-none md:leading-snug
-}
-
-.double-dash--date{
-	@apply bg-left-top pt-11 pb-4 text-xs md:pt-0
-}
-
-.double-dash--info{
-	@apply pb-11 px-5 md:px-0
-}
-
-.double-dash:last-of-type{
-	@apply bg-24_1 bg-lines bg-left-bottom bg-repeat-x mb-0 pb-4 md:bg-none
+.static-lines{
+	@apply bg-24_1 bg-lines bg-repeat-x
 }
 
 main>#fourth-section{
@@ -273,30 +268,55 @@ main>#fourth-section{
 }
 
 #fourth-section{
-	@apply md:pt-12 md:pb-7 relative md:moving-lines md:moving-lines-different;
-	background-size: 30px 1px, 0px 0px, 30px 1px, 0px 0px;
+	@apply md:py-3 relative md:two-static-lines
+}
+
+#fourth-section--div{
+	@apply two-static-lines mx-8 py-2 md:mx-0;
+}
+
+.double-dash{
+	@apply my-2 text-center md:my-[3.4rem] md:mb-[4.5rem]
+}
+
+.double-dash--info, .double-dash--date{
+	@apply static-lines md:bg-none md:leading-snug
+}
+
+.double-dash--date{
+	@apply bg-left-top pt-12 pb-4 text-xs md:pt-0
+}
+
+.double-dash--info{
+	@apply pb-12 px-5 md:px-0 bg-left-bottom leading-snug md:pb-0;
 }
 
 .fourth-section--link{
-	@apply my-[3.25rem] md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 md:my-0 md:w-auto md:py-4 md:px-14 md:-mb-9 md:z-1
+	@apply md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 my-[3.55rem] md:my-0 md:-mb-6 bg-white
+}
+
+#fifth-section{
+	@apply grid md:grid-cols-2 md:gap-16
+}
+
+#fifth-section--location, #fifth-section--address{
+	@apply focus:animate-movingLines focus-within:animate-movingLines active:animate-movingLines cursor-pointer hover:animate-movingLines moving-lines mb-8 md:my-[4.5rem] md:mt-[8.5rem]
 }
 
 #fifth-section--location{
-	@apply text-[2.5rem] font-ogg p-[3.25rem] text-center mb-8 focus-within:animate-movingLines active:animate-movingLines cursor-pointer hover:animate-movingLines;
+	@apply hidden md:block
 }
 
-@keyframes moving-lines{
-	0%{
-		background-position: 0 0, 100% 0, 0% 100%, 0 0%;
-	}
+#fifth-section--location>img{
+	@apply object-cover h-full relative z-[-1]
+}
 
-	100%{
-		background-position: 30px 0, 100% 30px, -30px 100%, 0 -30px;
-	}
+#fifth-section--address{
+	@apply text-[2.5rem] font-ogg p-[3.25rem] text-center md:text-6xl md:leading-snug md:px-0 md:py-20
 }
 
 #sixth-section--div{
-	@apply py-10;
+	@apply py-10 flex flex-col items-center md:px-20 md:py-[3.75rem];
 	background-image: repeating-linear-gradient(-74deg,rgba(0,0,0,.2),rgba(0,0,0,.2) 1px,transparent 0,transparent 4px),repeating-linear-gradient(-74deg,rgba(0,0,0,.2),rgba(0,0,0,.2) 1px,transparent 0,transparent 4px);
     background-position: 0 0,0 100%;
     background-size: 100% 12px,100% 12px;
@@ -304,7 +324,7 @@ main>#fourth-section{
 }
 
 #sixth-section--vendor{
-	@apply text-2xl font-ogg px-4 text-center pb-5;
+	@apply text-2xl font-ogg px-4 text-center pb-5 md:text-[2.8125rem] leading-snug
 }
 
 .sixth-section--vendor-link{
@@ -317,6 +337,10 @@ main>#fourth-section{
 
 .footer--reach-us{
 	@apply text-center moving-lines mb-[1.875rem] focus-within:animate-movingLines active:animate-movingLines cursor-pointer hover:animate-movingLines
+}
+
+#footer>div{
+	@apply grid-container md:grid-cols-3
 }
 
 .footer--reach-us-icon{
