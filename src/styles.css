@@ -339,8 +339,12 @@ main>#fourth-section{
 	@apply text-center moving-lines mb-[1.875rem] focus-within:animate-movingLines active:animate-movingLines cursor-pointer hover:animate-movingLines
 }
 
-#footer>div{
-	@apply grid-container md:grid-cols-3
+#footer--idk{
+	@apply flex flex-col md:flex-row
+}
+
+#footer--idk .footer--reach-us{
+	@apply md:mr-[3.5rem] md:px-14 md:flex md:flex-col md:items-center md:justify-center md:py-8 
 }
 
 .footer--reach-us-icon{
