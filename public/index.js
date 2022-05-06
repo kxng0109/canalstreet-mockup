@@ -9,6 +9,7 @@ const openMenu = makeVariable('.openTheMenu');
 const menuOptions = makeVariable(".menu--options", 'querySelectorAll');
 const menuMoreInfo = makeVariable("#menu--more-info");
 const logo = makeVariable('#logo');
+const deviceWidth = screen.width
 const verticalPixels = document.documentElement.onscroll = () => document.documentElement.scrollTop;
 const fadeInImages = makeVariable('.fade', 'querySelectorAll');
 let documentSize = parseInt(getComputedStyle(document.documentElement, undefined).getPropertyValue('height'));
@@ -48,12 +49,19 @@ const imagesChecker = (index, firstValue, secondValue) =>{
 }
 
 // Didn't use window.onscroll because it lags the clients side. Interval seems much better
-setInterval(() =>{
-	imagesChecker(0, 3.4, 9) ? fadeInImages[0].style.opacity = '1'
-	: imagesChecker(1, 16, 23) ? fadeInImages[1].style.opacity = '1'
-	: imagesChecker(2, 28, 35) ? fadeInImages[2].style.opacity = '1'
-	: imagesChecker(3, 38, 50) ? fadeInImages[3].style.opacity = '1'
-	: false
-}, 250)
+switch (true) {
+	case deviceWidth >= 768:
+	break;
+	default:				
+		setInterval(() =>{
+			imagesChecker(0, 3.4, 9) ? fadeInImages[0].style.opacity = '1'
+			: imagesChecker(1, 16, 23) ? fadeInImages[1].style.opacity = '1'
+			: imagesChecker(2, 28, 35) ? fadeInImages[2].style.opacity = '1'
+			: imagesChecker(3, 38, 50) ? fadeInImages[3].style.opacity = '1'
+			: false
+		}, 250)
+	break;
+}
+// window.onscroll = () => console.log(verticalPixels())
 
 window.onresize = () => {return documentSize = parseInt(getComputedStyle(document.documentElement, undefined).getPropertyValue('height'))};

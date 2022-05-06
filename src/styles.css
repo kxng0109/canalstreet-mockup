@@ -340,23 +340,43 @@ main>#fourth-section{
 }
 
 #footer--idk{
-	@apply flex flex-col md:flex-row
+	@apply flex flex-col md:flex-row md:justify-between
 }
 
 #footer--idk .footer--reach-us{
-	@apply md:mr-[3.5rem] md:px-14 md:flex md:flex-col md:items-center md:justify-center md:py-8 
+	@apply md:mr-[3.5rem] md:px-16 md:flex md:flex-col md:items-center md:justify-center md:py-8 md:w-1/3
+}
+
+#footer--idk .footer--reach-us:last-of-type{
+	@apply md:mr-0
 }
 
 .footer--reach-us-icon{
 	@apply pt-[1.875rem] pb-2 text-3xl
 }
 
+#footer--small-screen{
+	@apply md:hidden
+}
+
+#footer--big-screen{
+	@apply hidden md:block text-[1.375rem] text-left leading-snug mr-10
+}
+
 .footer--reach-us .preformatted{
 	@apply text-center pb-[1.875rem] text-sm mb-0
 }
 
-.footer--email{
-	@apply mt-[3.75rem]
+#footer--email>.preformatted{
+	@apply pb-0 flex flex-row w-3/4 mx-auto items-start
+}
+
+#footer--email .footer--reach-us-icon{
+	@apply pt-0 md:hidden
+}
+
+#footer--email{
+	@apply mt-[1.75rem] py-[1.875rem]
 }
 
 .footer--bottom-divs{
@@ -368,11 +388,11 @@ main>#fourth-section{
 }
 
 .footer--input-email{
-	@apply border border-black px-6 py-4 w-5/6 mt-4 mx-auto flex flex-row justify-between items-center
+	@apply border border-black px-6 py-4 w-5/6 mt-4 mx-auto flex flex-row justify-between items-center  md:mt-0
 }
 
 input[type="email"]{
-	@apply placeholder:text-black placeholder:opacity-100 focus:border-0 focus:outline-0
+	@apply placeholder:text-black placeholder:opacity-100 focus:border-0 focus:outline-0 md:w-full
 }
 
 .footer--input-email-enter-btn{
