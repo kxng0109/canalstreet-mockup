@@ -1,4 +1,5 @@
 'use strict'
+window.scrollTo(0,0);
 const makeVariable = (element, selectorType = 'querySelector', theTarget = document) => {return theTarget[selectorType](`${element}`)};
 const container = makeVariable('#container');
 const main = makeVariable('#main');
@@ -9,10 +10,10 @@ const openMenu = makeVariable('.openTheMenu');
 const menuOptions = makeVariable(".menu--options", 'querySelectorAll');
 const menuMoreInfo = makeVariable("#menu--more-info");
 const logo = makeVariable('#logo');
-const deviceWidth = screen.width
+const deviceWidth = screen.width;
 const verticalPixels = document.documentElement.onscroll = () => document.documentElement.scrollTop;
 const fadeInImages = makeVariable('.fade', 'querySelectorAll');
-let documentSize = parseInt(getComputedStyle(document.documentElement, undefined).getPropertyValue('height'));
+// let documentSize = parseInt(getComputedStyle(document.documentElement, undefined).getPropertyValue('height'));
 
 menuIconBox.onclick = () =>{
 	getComputedStyle(closeMenu, undefined).getPropertyValue('opacity') == '0' 
@@ -40,28 +41,55 @@ menuIconBox.onclick = () =>{
 	)
 }
 
-const calcWindowsHeight = value =>{
-	return (value / 100) * documentSize;
-}
+// const calcWindowsHeight = value =>{
+// 	return (value / 100) * documentSize;
+// }
 
-const imagesChecker = (index, firstValue, secondValue) =>{
-	return verticalPixels() >= calcWindowsHeight(firstValue)  && verticalPixels() < calcWindowsHeight(secondValue) &&  getComputedStyle(fadeInImages[index], undefined).getPropertyValue('opacity') == 0
-}
+// const imagesChecker = (index, firstValue, secondValue) =>{
+// 	return verticalPixels() >= calcWindowsHeight(firstValue)  && verticalPixels() < calcWindowsHeight(secondValue) &&  getComputedStyle(fadeInImages[index], undefined).getPropertyValue('opacity') == 0
+// }
 
-// Didn't use window.onscroll because it lags the clients side. Interval seems much better
-switch (true) {
-	case deviceWidth >= 768:
-	break;
-	default:				
-		setInterval(() =>{
-			imagesChecker(0, 3.4, 9) ? fadeInImages[0].style.opacity = '1'
-			: imagesChecker(1, 16, 23) ? fadeInImages[1].style.opacity = '1'
-			: imagesChecker(2, 28, 35) ? fadeInImages[2].style.opacity = '1'
-			: imagesChecker(3, 38, 50) ? fadeInImages[3].style.opacity = '1'
-			: false
-		}, 250)
-	break;
-}
-// window.onscroll = () => console.log(verticalPixels())
+// // Didn't use window.onscroll because it lags the clients side. Interval seems much better
+// switch (true) {
+// 	if else deviceWidth >= 768 && deviceWidth < 1280:
 
-window.onresize = () => {return documentSize = parseInt(getComputedStyle(document.documentElement, undefined).getPropertyValue('height'))};
+// 	break;
+// 	default:				
+// 		setInterval(() =>{
+// 			imagesChecker(0, 3.4, 9) ? fadeInImages[0].style.opacity = '1'
+// 			: imagesChecker(1, 16, 23) ? fadeInImages[1].style.opacity = '1'
+// 			: imagesChecker(2, 28, 35) ? fadeInImages[2].style.opacity = '1'
+// 			: imagesChecker(3, 38, 50) ? fadeInImages[3].style.opacity = '1'
+// 			: false
+// 		}, 250)
+// 	break;
+// }
+
+if (true) {}
+let [elementPosition, elementHeight, difference] = [[], [], []];
+let imageHeightAndPosition = () =>{
+	fadeInImages.forEach( (element, index) =>{
+		elementHeight[index] = parseInt(getComputedStyle(fadeInImages[index], undefined).getPropertyValue('height'));
+		elementPosition[index] = fadeInImages[index].getBoundingClientRect().top;
+		difference[index] = elementPosition[index] - elementHeight[index];
+	});
+	return difference;
+}
+imageHeightAndPosition();
+
+window.onresize = () => imageHeightAndPosition();
+window.onscroll = () => {
+	console.log(difference[1])
+	if (difference[0] <= verticalPixels() && verticalPixels() < difference[1]){
+		fadeInImages[0].style.opacity = '1'
+	}
+	else if (difference[1] <= verticalPixels() && verticalPixels() < difference[2]){
+		fadeInImages[1].style.opacity = '1';
+	}
+	else if (difference[2] <= verticalPixels() && verticalPixels() < difference[3]){
+		fadeInImages[2].style.opacity = '1';
+	}
+	else if (difference[3] <= verticalPixels()){
+		fadeInImages[3].style.opacity = '1';
+	}
+}

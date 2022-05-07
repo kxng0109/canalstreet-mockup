@@ -368,7 +368,7 @@ main>#fourth-section{
 }
 
 #footer--email>.preformatted{
-	@apply pb-0 flex flex-row w-3/4 mx-auto items-start
+	@apply pb-0 md:flex md:flex-row md:w-3/4 md:mx-auto md:items-start
 }
 
 #footer--email .footer--reach-us-icon{

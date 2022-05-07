@@ -1548,13 +1548,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 #footer--email>.preformatted {
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  width: 75%;
-  flex-direction: row;
-  align-items: flex-start;
   padding-bottom: 0px;
+}
+
+@media (min-width: 768px) {
+  #footer--email>.preformatted {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 75%;
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 #footer--email .footer--reach-us-icon {
