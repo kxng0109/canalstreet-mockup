@@ -1,5 +1,4 @@
 'use strict'
-window.scrollTo(0,0);
 const makeVariable = (element, selectorType = 'querySelector', theTarget = document) => {return theTarget[selectorType](`${element}`)};
 const container = makeVariable('#container');
 const main = makeVariable('#main');
@@ -36,7 +35,7 @@ menuIconBox.onclick = () =>{
 			menuMoreInfo.style.opacity = '0'
 		}),
 		menu.style.opacity = '0', 
-		setTimeout(() => menu.style.display = 'none', 300),
+		setTimeout(() => menu.style.display = 'none', 500),
 		document.documentElement.style.overflowY = 'auto'
 	)
 }
@@ -65,31 +64,44 @@ menuIconBox.onclick = () =>{
 // 	break;
 // }
 
-if (true) {}
 let [elementPosition, elementHeight, difference] = [[], [], []];
 let imageHeightAndPosition = () =>{
 	fadeInImages.forEach( (element, index) =>{
-		elementHeight[index] = parseInt(getComputedStyle(fadeInImages[index], undefined).getPropertyValue('height'));
+		elementHeight[index] = fadeInImages[index].getBoundingClientRect().height;
 		elementPosition[index] = fadeInImages[index].getBoundingClientRect().top;
 		difference[index] = elementPosition[index] - elementHeight[index];
 	});
+		// console.log(`elementHeight: ${elementHeight}, elementPosition: ${elementPosition}, difference : ${difference}, verticalPixels: ${verticalPixels()}`)
 	return difference;
 }
-imageHeightAndPosition();
+
+verticalPixels() >= 20 ? (window.scrollTo(0, 0), setTimeout(() => imageHeightAndPosition(), 1000)) 
+: imageHeightAndPosition();
+
+
 
 window.onresize = () => imageHeightAndPosition();
 window.onscroll = () => {
-	console.log(difference[1])
-	if (difference[0] <= verticalPixels() && verticalPixels() < difference[1]){
-		fadeInImages[0].style.opacity = '1'
-	}
-	else if (difference[1] <= verticalPixels() && verticalPixels() < difference[2]){
-		fadeInImages[1].style.opacity = '1';
-	}
-	else if (difference[2] <= verticalPixels() && verticalPixels() < difference[3]){
-		fadeInImages[2].style.opacity = '1';
-	}
-	else if (difference[3] <= verticalPixels()){
-		fadeInImages[3].style.opacity = '1';
+	if (deviceWidth < 768) {
+		if (difference[0] <= verticalPixels() && verticalPixels() < difference[1]){
+			fadeInImages[0].style.opacity = '1'
+		}
+		else if (difference[1] <= verticalPixels() && verticalPixels() < difference[2]){
+			fadeInImages[1].style.opacity = '1';
+		}
+		else if (difference[2] <= verticalPixels() && verticalPixels() < difference[3]){
+			fadeInImages[2].style.opacity = '1';
+		}
+		else if (difference[3] <= verticalPixels()){
+			fadeInImages[3].style.opacity = '1';
+		}
+	}else {
+		if (difference[0] <= verticalPixels() && verticalPixels() < difference[1]){
+			fadeInImages[0].style.opacity = '1'
+		}else if (difference[1] <= verticalPixels()) {
+			fadeInImages[1].style.opacity = '1';
+			fadeInImages[2].style.opacity = '1';
+			fadeInImages[3].style.opacity = '1';
+		}
 	}
 }

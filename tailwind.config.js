@@ -16,7 +16,13 @@ module.exports = {
 				"option-3" : "options 0.25s linear 0.3s forwards",
 				"option-4" : "options 0.25s linear 0.4s forwards",
 				"movingLines" : "0.4s moving-lines linear infinite forwards",
-				"movingLinesSlower" : "0.8s moving-lines-different linear infinite forwards"
+				"movingLinesSlower" : "0.8s moving-lines-different linear infinite forwards",
+				"bodyOpacity" : "bodyOpacity 0.8s linear forwards",
+				"bodyOpacityFast" : "bodyOpacity 0.5s linear forwards",
+				"mainOpacity" : "bodyOpacity 0.5s linear 2s forwards",
+				"sideNav-0" : "sideNavAppear 0.4s ease-out 0.1s forwards",
+				"sideNav-1" : "sideNavAppear 0.5s ease-out 0.2s forwards",
+				"sideNav-2" : "sideNavAppear 0.6s ease-out 0.3s forwards",
 			},
 			zIndex:{
 				'1' : '1',
