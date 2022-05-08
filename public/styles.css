@@ -1049,8 +1049,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 768px) {
   #main {
     top: 15.6rem;
-    -webkit-animation: bodyOpacity 0.5s linear 2s forwards;
-            animation: bodyOpacity 0.5s linear 2s forwards;
+    -webkit-animation: bodyOpacity 0.5s linear 1.5s forwards;
+            animation: bodyOpacity 0.5s linear 1.5s forwards;
     opacity: 0;
   }
 }
@@ -1166,6 +1166,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
@@ -1180,11 +1181,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1;
 }
 
+.third-section--headers:nth-child(even) {
+  max-width: 24rem;
+}
+
 @media (min-width: 768px) {
   .third-section--headers {
     margin-left: 0px;
     margin-right: 0px;
-    margin-right: 3.5rem;
     font-size: 6rem;
     line-height: 1;
   }
@@ -1417,11 +1421,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #fifth-section--location {
   display: none;
+  overflow-y: hidden;
 }
 
 @media (min-width: 768px) {
   #fifth-section--location {
     display: block;
+  }
+}
+
+@media (min-width: 1536px) {
+  #fifth-section--location {
+    max-height: 20rem;
   }
 }
 
@@ -1431,6 +1442,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media (min-width: 1536px) {
+  #fifth-section--location>img {
+    height: auto;
+  }
 }
 
 #fifth-section--address {
@@ -1446,6 +1463,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-right: 0px;
     padding-top: 5rem;
     padding-bottom: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     font-size: 3.75rem;
     line-height: 1.375;
   }
@@ -1625,6 +1644,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 1.875rem;
 }
 
+@media (min-width: 768px) {
+  #footer--bottom {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 .footer--bottom-divs {
   display: flex;
   flex-direction: row;
@@ -1632,6 +1661,33 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: space-between;
   font-family: apercu, Helvetica, sans-serif;
   font-size: 0.625rem;
+}
+
+@media (min-width: 768px) {
+  .footer--bottom-divs {
+    position: absolute;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+.footer--bottom-divs:first-of-type {
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .footer--bottom-divs:first-of-type {
+    left: 50%;
+    margin-bottom: 0px;
+    width: 33.333333%;
+    --tw-translate-x: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .footer--bottom-divs:last-of-type {
+    width: 100%;
+    flex-direction: row-reverse;
+  }
 }
 
 .footer--link {
@@ -1729,17 +1785,17 @@ input[type="email"]:focus {
   }
 
   .md\:animate-sideNav-2 {
-    -webkit-animation: sideNavAppear 0.6s ease-out 0.3s forwards;
-            animation: sideNavAppear 0.6s ease-out 0.3s forwards;
+    -webkit-animation: sideNavAppear 0.7s ease-out 0.3s forwards;
+            animation: sideNavAppear 0.7s ease-out 0.3s forwards;
   }
 
   .md\:animate-sideNav-1 {
-    -webkit-animation: sideNavAppear 0.5s ease-out 0.2s forwards;
-            animation: sideNavAppear 0.5s ease-out 0.2s forwards;
+    -webkit-animation: sideNavAppear 0.6s ease-out 0.2s forwards;
+            animation: sideNavAppear 0.6s ease-out 0.2s forwards;
   }
 
   .md\:animate-sideNav-0 {
-    -webkit-animation: sideNavAppear 0.4s ease-out 0.1s forwards;
-            animation: sideNavAppear 0.4s ease-out 0.1s forwards;
+    -webkit-animation: sideNavAppear 0.5s ease-out 0.1s forwards;
+            animation: sideNavAppear 0.5s ease-out 0.1s forwards;
   }
 }

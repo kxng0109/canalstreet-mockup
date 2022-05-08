@@ -261,11 +261,11 @@ main>#third-section{
 }
 
 #third-section{
-	@apply mt-6 md:flex md:flex-row md:items-center md:py-16 md:mx-14 mb-2;
+	@apply mt-6 md:flex md:flex-row md:items-center md:py-16 md:mx-14 mb-2 md:justify-evenly
 }
 
 .third-section--headers{
-	@apply text-6xl font-ogg text-center mx-8 md:mx-0 md:text-8xl md:mr-14
+	@apply text-6xl font-ogg text-center mx-8 md:mx-0 md:text-8xl even:max-w-sm 
 }
 
 .foreign{
@@ -316,7 +316,7 @@ main>#fourth-section{
 }
 
 #fifth-section{
-	@apply grid md:grid-cols-2 md:gap-16
+	@apply grid md:grid-cols-2 md:gap-16 
 }
 
 #fifth-section--location, #fifth-section--address{
@@ -324,15 +324,15 @@ main>#fourth-section{
 }
 
 #fifth-section--location{
-	@apply hidden md:block
+	@apply hidden md:block 2xl:max-h-80 overflow-y-hidden
 }
 
 #fifth-section--location>img{
-	@apply object-cover h-full relative z-[-1]
+	@apply object-cover h-full relative z-[-1] 2xl:h-auto
 }
 
 #fifth-section--address{
-	@apply text-[2.5rem] font-ogg p-[3.25rem] text-center md:text-6xl md:leading-snug md:px-0 md:py-20
+	@apply text-[2.5rem] font-ogg p-[3.25rem] text-center md:text-6xl md:leading-snug md:px-0 md:py-20 md:px-6 
 }
 
 #sixth-section--div{
@@ -399,8 +399,20 @@ main>#fourth-section{
 	@apply mt-[1.75rem] py-[1.875rem]
 }
 
+#footer--bottom{
+	@apply md:flex md:flex-row md:items-center md:justify-between md:relative
+}
+
 .footer--bottom-divs{
-	@apply font-apercu text-[0.625rem] flex flex-row items-center justify-between
+	@apply font-apercu text-[0.625rem] flex flex-row items-center justify-between md:text-sm md:absolute
+}
+
+.footer--bottom-divs:first-of-type{
+	@apply mb-7 md:w-1/3 md:mb-0 md:left-1/2 md:-translate-x-1/2
+}
+
+.footer--bottom-divs:last-of-type{
+	@apply md:flex-row-reverse md:w-full
 }
 
 .footer--link{

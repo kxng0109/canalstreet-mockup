@@ -12,7 +12,6 @@ const logo = makeVariable('#logo');
 const deviceWidth = screen.width;
 const verticalPixels = document.documentElement.onscroll = () => document.documentElement.scrollTop;
 const fadeInImages = makeVariable('.fade', 'querySelectorAll');
-// let documentSize = parseInt(getComputedStyle(document.documentElement, undefined).getPropertyValue('height'));
 
 menuIconBox.onclick = () =>{
 	getComputedStyle(closeMenu, undefined).getPropertyValue('opacity') == '0' 
@@ -40,30 +39,6 @@ menuIconBox.onclick = () =>{
 	)
 }
 
-// const calcWindowsHeight = value =>{
-// 	return (value / 100) * documentSize;
-// }
-
-// const imagesChecker = (index, firstValue, secondValue) =>{
-// 	return verticalPixels() >= calcWindowsHeight(firstValue)  && verticalPixels() < calcWindowsHeight(secondValue) &&  getComputedStyle(fadeInImages[index], undefined).getPropertyValue('opacity') == 0
-// }
-
-// // Didn't use window.onscroll because it lags the clients side. Interval seems much better
-// switch (true) {
-// 	if else deviceWidth >= 768 && deviceWidth < 1280:
-
-// 	break;
-// 	default:				
-// 		setInterval(() =>{
-// 			imagesChecker(0, 3.4, 9) ? fadeInImages[0].style.opacity = '1'
-// 			: imagesChecker(1, 16, 23) ? fadeInImages[1].style.opacity = '1'
-// 			: imagesChecker(2, 28, 35) ? fadeInImages[2].style.opacity = '1'
-// 			: imagesChecker(3, 38, 50) ? fadeInImages[3].style.opacity = '1'
-// 			: false
-// 		}, 250)
-// 	break;
-// }
-
 let [elementPosition, elementHeight, difference] = [[], [], []];
 let imageHeightAndPosition = () =>{
 	fadeInImages.forEach( (element, index) =>{
@@ -71,14 +46,11 @@ let imageHeightAndPosition = () =>{
 		elementPosition[index] = fadeInImages[index].getBoundingClientRect().top;
 		difference[index] = elementPosition[index] - elementHeight[index];
 	});
-		// console.log(`elementHeight: ${elementHeight}, elementPosition: ${elementPosition}, difference : ${difference}, verticalPixels: ${verticalPixels()}`)
 	return difference;
 }
 
 verticalPixels() >= 20 ? (window.scrollTo(0, 0), setTimeout(() => imageHeightAndPosition(), 1000)) 
 : imageHeightAndPosition();
-
-
 
 window.onresize = () => imageHeightAndPosition();
 window.onscroll = () => {
